@@ -71,8 +71,15 @@ int main(int argc, char *argv[]) {
     
     BGRPixel *pixels = intoBGRPixelArray1D(bgrImage);
     BGRPixel *outputPixels = allocateBGRPixelArray1D(size);
+
+    auto start = std::chrono::high_resolution_clock::now();
+    
     sharpeningFilter(pixels, outputPixels, size.width, size.height);
 
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> duration = end - start;
+    std::cout << duration.count() << std::endl;
+    
     auto outputMat = fromBGRPixelArray1D(outputPixels, size);
     cv::imwrite(outputPath, outputMat);
     

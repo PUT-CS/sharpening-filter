@@ -56,7 +56,7 @@ int main(int argc, char *argv[]) {
     auto inputPath = argv[1];
     auto outputPath = argv[2];
     if (argc < 3) {
-        std::cerr << "Usage: sharpening-filter <input_image> <output_image> [--window window_size]"
+        std::cerr << "Usage: sharpening-filter <input_image> <output_image>"
                   << std::endl;
         return -1;
     }
@@ -68,7 +68,6 @@ int main(int argc, char *argv[]) {
         std::cerr << "Error: Could not open or find the image" << std::endl;
         return -1;
     }
-
     
     BGRPixel *pixels = intoBGRPixelArray1D(bgrImage);
     BGRPixel *outputPixels = allocateBGRPixelArray1D(size);

@@ -20,8 +20,10 @@ constexpr double KERNEL[KERNEL_HEIGHT][KERNEL_WIDTH] =
 constexpr double FACTOR = 1. / 8.;
 
 void sharpeningFilter(BGRPixel *pixels, BGRPixel *outputImage, int width, int height) {
-    for (int y = 0; y < height; y++) {
-	for (int x = 0; x < width; x++) {
+    int x, y;
+    #pragma omp parallel for private(x) 
+    for (y = 0; y < height; y++) {
+	for (x = 0; x < width; x++) {
 	    
 	    double sumR = 0;
 	    double sumG = 0;

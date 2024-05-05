@@ -1,7 +1,7 @@
 [
 {
   "directory": "/home/sebas/Projects/sharpening-filter",
-  "command": "/usr/bin/c++  -isystem /usr/include/opencv4  -O0 -Wall -Wextra -Wpedantic -flto -ffast-math -std=c++17 -o CMakeFiles/sharpening-filter.dir/src/main.cpp.o -c /home/sebas/Projects/sharpening-filter/src/main.cpp",
+  "command": "/usr/bin/c++  -isystem /usr/include/opencv4  -O0 -Wall -Wextra -Wpedantic -flto -ffast-math -fopenmp -std=c++17 -o CMakeFiles/sharpening-filter.dir/src/main.cpp.o -c /home/sebas/Projects/sharpening-filter/src/main.cpp",
   "file": "/home/sebas/Projects/sharpening-filter/src/main.cpp"
 }
 ]

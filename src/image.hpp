@@ -5,7 +5,7 @@
 #include <opencv2/core/matx.hpp>
 #include <opencv2/core/types.hpp>
 #include <opencv4/opencv2/opencv.hpp>
-#include "pixel.hpp"
+#include "pixel.cuh"
 
 typedef cv::Vec3b Pixel;
 

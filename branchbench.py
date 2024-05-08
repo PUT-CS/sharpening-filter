@@ -29,7 +29,7 @@ def clone_repository(repo_url, clone_dir):
 # Function to switch to a specific branch
 def switch_branch(branch_name, clone_dir):
     print(Fore.MAGENTA + f"Switching to {branch_name} branch..." + Style.RESET_ALL)
-    subprocess.run(["git", "checkout", branch_name], cwd=clone_dir)
+    subprocess.run(["git", "checkout","--force" ,branch_name], cwd=clone_dir)
 
 # Function to time the execution of a C++ program
 def time_execution(program, arguments, iterations, branch_name, window_size):
@@ -104,7 +104,7 @@ def main(repo_url, clone_dir, branch_names, window_sizes, executable_arguments, 
     # Plotting the execution times
     plt.figure(figsize=(10, 6))
     ax = plt.gca()
-    ax.set_xlim(window_sizes[0], window_sizes[-1] + 1)
+    ax.set_xlim(str(int(window_sizes[0])), str(int(window_sizes[-1]) + 1))
     ax.set_ylim(0, max([max(times.values()) for times in average_execution_times.values()]) + 0.1)
     for branch_name, times in average_execution_times.items():
         plt.plot(times.keys(), times.values(), label=branch_name, linewidth=3.0)
@@ -129,8 +129,9 @@ if __name__ == "__main__":
     # Define constants
     repo_url = "https://github.com/PUT-CS/sharpening-filter.git"
     clone_dir = "/tmp/sharpening-filter"
-    branch_names = ["main", "openmp", "cuda"]
-    img_sizes = ["", "1024", "2048", "4096", "8192"]
+    branch_names = ["cuda"]
+                    #"openmp", "main"]
+    img_sizes = ["512", "1024", "2048", "4096", "8192"]
     executable_arguments = [f"{os.path.join(clone_dir, f'img/lenna{size}.png')} {os.path.join(clone_dir, f'img/out{size}.png')}" for size in img_sizes]
 
     # Run the main function

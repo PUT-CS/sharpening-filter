@@ -30,9 +30,9 @@ void sharpeningFilter(BGRPixel *pixels, BGRPixel *outputImage, int width, int he
 	    double sumB = 0;
 	    
 	    for (int i = 0; i < KERNEL_HEIGHT; i++) {
+		int pixelY = (y + i - KERNEL_HEIGHT / 2) % height;
 		for (int j = 0; j < KERNEL_WIDTH; j++) {
 		    int pixelX = (x + j - KERNEL_WIDTH / 2) % width;
-		    int pixelY = (y + i - KERNEL_HEIGHT / 2) % height;
 		    
 		    if (pixelX >= 0 && pixelX < width && pixelY >= 0 && pixelY < height) {
 			auto pixel = pixels[pixelY * width + pixelX].pixel;
